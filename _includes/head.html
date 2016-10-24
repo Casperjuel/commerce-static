@@ -5,7 +5,7 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ "css/screen.css " | prepend: site.baseurl }}">
-    <script src="js/simpleCart.min.js"></script>
+    <script src="{{ "js/simpleCart.min.js" | prepend: site.baseurl }}"></script>
     {% for script in layout.head %} {% include {{ script }} %} {% endfor %}
 </head>
 <script type="text/javascript">
