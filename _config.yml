@@ -1,0 +1,11 @@
+# Site settings
+title: Commerce prototype
+email: info@casperjuel.dk
+description: Commerce static prototype
+baseurl: "" # the subpath of your site, e.g. /blog/
+
+# Build settings
+markdown: kramdown
+collections:
+  products:
+    output: true

@@ -1,0 +1,93 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+header {
+  height: 120px;
+}
+
+footer {
+  min-height: 200px;
+  background-color: darken($primary, 35%);
+}
+
+.page-content {
+  @include outer-container;
+
+  margin: 50px auto;
+}
+
+.product {
+  @include span-columns(4);
+
+  @include omega(last-child);
+}
+
+.headerRow, .itemRow {
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  @include clearfix;
+
+  > div {
+    display: block;
+    float: left;
+    height: 100px;
+    line-height: 40px;
+    flex: 1;
+  }
+}
+
+.headerRow {
+  background-color: #ccc;
+
+  > div {
+    color: #aaa;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+@keyframes fadeIt {
+  0% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgba(97, 186, 0, 0.4);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.updated {
+  animation: fadeIt .5s ease-in-out;
+}
+
+.simpleCart_total {}
+
+.simpleCart_quantity {}
+
+.simpleCart_tax {}
+
+.simpleCart_taxRate {}
+
+.simpleCart_shipping {}
+
+.simpleCart_grandTotal {}

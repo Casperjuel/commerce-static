@@ -1,0 +1,26 @@
+---
+layout: default
+head: simplecart.html
+  
+---
+<div class="product-details simpleCart_shelfItem">
+  <img src="{{ page.image }}" alt="{{ page.name }}" class="item_thumb thumbnail"/>
+  <div class="product-description">
+    <p class="item_name">{{ page.name }}</p>
+
+    <p>
+      {{ page.content }}
+    </p>
+    <input type="text" value="1" class="item_Quantity"><br>
+    <span class="item_price">$35.99</span><br>
+
+    <button class="product-add-item item_add"
+      data-item-name="{{ page.name }}"
+      data-item-id="{{ page.sku }}"
+      data-item-image="{{ page.image }}"
+      data-item-url="{{ site.baseurl }}"
+      data-item-price="{{ page.price }}">
+      Add to cart
+    </button>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ " /css/screen.css " | prepend: site.baseurl }}">
+    <script src="/js/simpleCart.min.js"></script>
+    {% for script in layout.head %} {% include {{ script }} %} {% endfor %}
+</head>
+<script type="text/javascript">
+simpleCart({
+    // array representing the format and columns of the cart,
+    // see the cart columns documentation
+    cartColumns: [{
+        attr: "name",
+        label: "Name"
+    }, {
+        view: "image",
+        attr: "thumb",
+        label: "Photo"
+    }, {
+        attr: "price",
+        label: "Price",
+        view: 'currency'
+    }, {
+        view: "decrement",
+        label: false,
+        text: "-"
+    }, {
+        attr: "quantity",
+        label: "Qty"
+    }, {
+        view: "increment",
+        label: false,
+        text: "+"
+    }, {
+        attr: "total",
+        label: "SubTotal",
+        view: 'currency'
+    }, {
+        view: "remove",
+        text: "Remove",
+        label: false
+    }],
+
+    // "div" or "table" - builds the cart as a 
+    // table or collection of divs
+    cartStyle: "div",
+
+    // how simpleCart should checkout, see the 
+    // checkout reference for more info 
+    checkout: {
+        type: "PayPal",
+        email: "you@yours.com"
+    },
+
+    // set the currency, see the currency 
+    // reference for more info
+    currency: "DKK",
+
+    // collection of arbitrary data you may want to store 
+    // with the cart, such as customer info
+    data: {},
+
+    // set the cart langauge 
+    // (may be used for checkout)
+    language: "english-us",
+
+    // array of item fields that will not be 
+    // sent to checkout
+    excludeFromCheckout: [],
+
+    // custom function to add shipping cost
+    shippingCustom: null,
+
+    // flat rate shipping option
+    shippingFlatRate: 40,
+
+    // added shipping based on this value 
+    // multiplied by the cart quantity
+    shippingQuantityRate: 0,
+
+    // added shipping based on this value 
+    // multiplied by the cart subtotal
+    shippingTotalRate: 0,
+
+    // tax rate applied to cart subtotal
+    taxRate: 0.25,
+
+    // true if tax should be applied to shipping
+    taxShipping: false,
+
+    // event callbacks 
+    beforeAdd: null,
+    afterAdd: null,
+    load: null,
+    beforeSave: null,
+    afterSave: null,
+    update: null,
+    ready: null,
+    checkoutSuccess: null,
+    checkoutFail: null,
+    beforeCheckout: null,
+    beforeRemove: null
+});
+
+simpleCart.bind("afterAdd", function(item) {
+    $('.page-content .message').text(item.get("name") + " was added to the cart!");
+});
+
+
+simpleCart.bind("beforeRemove", function(item) {
+    $('.summary').addClass("updated").delay(700).queue(function() {
+        $(this).removeClass("updated").dequeue();
+    });
+});
+
+simpleCart.bind("afterAdd", function(item) {
+    $('.summary').addClass("updated").delay(700).queue(function() {
+        $(this).removeClass("updated").dequeue();
+    });
+});
+</script>
