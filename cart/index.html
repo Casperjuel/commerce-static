@@ -7,7 +7,9 @@ title: View Cart
 <h1>View cart</h1>
 
 <a href="javascript:;" class="simpleCart_empty">Empty</a>
-<a href="booking" class="">Bestil nu</a>
+<a href="{{ "booking/"  | prepend: site.baseurl }}" class="">Bestil nu</a>
+
+
 
 <div class="cart-items">Items: <span class="simpleCart_items"></span></div>
 <div class="cart-total">Total before tax: <span class="simpleCart_total"></span></div>
@@ -20,4 +22,4 @@ title: View Cart
 <div class="cart-grandtotal">Grand Total: <span class="simpleCart_grandTotal"></span></div>
 
 <a href="javascript:;" class="simpleCart_empty">Empty</a>
-<a href="booking" class="">Bestil nu</a>
+<a href="{{ "booking/"  | prepend: site.baseurl }}" class="">Bestil nu</a>
